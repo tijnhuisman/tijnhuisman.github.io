@@ -1,0 +1,130 @@
+#feed-wrapper {
+    column-count: 2;
+    gap: .5rem;
+}
+
+.feed-image:nth-child(n) > *:nth-last-child(2):first-child + figcaption:last-child
+ {
+    max-width: calc(100% - 2rem) !important;
+}
+
+.feed-image {
+    width: fit-content;
+    height: fit-content;
+    border-radius: .6rem;
+    align-items: center;
+    background-color: rgba(230, 230, 230);
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 0;
+    margin: .1rem 0;
+    padding: 0;
+    overflow: hidden;
+
+    cursor: pointer;
+    place-items: center;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0);
+
+    position: relative;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        scale .2s ease;
+
+    img {
+        width: 100%;
+        transition: inherit;
+    }
+
+    figcaption {
+        max-width: calc(100% - 8.5rem);
+        text-align: center;
+        position: absolute;
+        border-radius: .2rem;
+        padding: 0 .5rem;
+        left: .5rem;
+        bottom: .5rem;
+        opacity: 1;
+        height: 2rem;
+        line-height: 2rem;
+        background-color: var(--img-info-bg);
+        backdrop-filter: blur(10px) saturate(2);
+        display: inline;
+        color: var(--prim-txt);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition: inherit;
+    }
+
+
+    a {
+        border-radius: .2rem;
+
+        position: absolute;
+        transition: inherit;
+
+        inset: auto .55rem .5rem auto;
+        background-color: var(--img-info-bg);
+        backdrop-filter: blur(10px) saturate(2);
+        width: 6rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        overflow: hidden;
+
+
+        &::before {
+            background-image: url(../images/link.svg);
+            background-size: 1.2rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            content: '';
+            display: block;
+            position: absolute;
+            left: .4rem;
+            transition: inherit;
+        }
+
+        &::after {
+            text-align: right;
+            content: 'Bezoek';
+            color: var(--prim-txt);
+            transition: inherit;
+            margin-left: 2rem;
+        }
+    }
+}
+
+/* CSS to style the enlarged image and overlay */
+.enlarged-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 70%;
+    max-width: 90%;
+    z-index: 100;
+    border-radius: .25rem;
+}
+
+.enlarged-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+}

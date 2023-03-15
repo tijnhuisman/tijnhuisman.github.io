@@ -1,0 +1,167 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+:root {
+    --bg: rgb(255, 255, 255);
+    --prim-txt: black;
+    --header-bg: rgb(255, 255, 255, .7);
+    --img-info-bg: rgb(255, 255, 255, .7);
+}
+
+body {
+    overflow-x: hidden;
+    color: var(--prim-txt);
+    background-color: var(--bg);
+    margin: 0;
+    font-family: 'Satoshi', sans-serif;
+    transition: transform .2s ease;
+}
+
+@import 'partials/_hamburger';
+
+
+#header-wrapper {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    position: fixed;
+    transition:
+        background .2s ease,
+        height .2s ease,
+        backdrop-filter .2s ease;
+    z-index: 999;
+    background-color: var(--header-bg);
+    backdrop-filter: blur(30px) saturate(2);
+
+
+
+
+    img {
+        transition:
+            transform .3s ease,
+            opacity .3s ease;
+    }
+}
+
+
+header {
+    position: relative;
+    margin: 0 auto;
+    padding-right: 1rem;
+    width: min(100%, 52rem);
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#header-title {
+    font-size: 1.5rem;
+    line-height: 1rem;
+    opacity: 0;
+    cursor: pointer;
+    user-select: none;
+    transition:
+        opacity .3s ease;
+}
+
+
+
+nav {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    ul {
+        gap: 1rem;
+        display: flex;
+        padding-left: 0;
+        justify-content: space-evenly;
+        }
+
+    li {
+        text-align: center;
+        height: 100%;
+        width: 7rem;
+        display: block;
+
+        transition:
+            background-size .2s ease,
+            color .2s ease,
+            line-height .2s ease;
+
+        &:hover {
+            background-size: 100% .2rem;
+        }
+
+        &.selected {
+            pointer-events: none;
+            background-size: 100% .2rem !important;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.3rem;
+            width: 7rem;
+            text-align: center;
+            display: block;
+            line-height: 4rem;
+        }
+    }
+}
+
+#logo {
+    height: 4rem;
+    width: 4rem;
+    margin-left: .5rem;
+}
+
+
+main {
+    width: min(calc(100% - 2rem), 50rem);
+    margin: 0 auto;
+    padding-top: 4rem;
+}
+
+
+#home-title {
+    color: white;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+}
+
+#canv {
+    object-fit: cover;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    height: 12rem;
+    width: calc(100%);
+    background: linear-gradient(white, blue);
+}
+
+p {
+    line-height: 1.4;
+}
+
+
+@import 'partials/_feed';
+
+footer {
+    border-top: 1px rgba(0, 0, 0, .2) solid;
+    width: min(calc(100% - 2rem), 45rem);
+    margin: 1rem auto 0 auto;
+
+    p {
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        opacity: .5;
+    }
+}
+
+@import 'partials/_media';

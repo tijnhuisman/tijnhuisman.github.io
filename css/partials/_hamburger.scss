@@ -1,0 +1,99 @@
+@media only screen and (max-width: 768px) {
+    #menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0rem;
+        justify-content: flex-start;
+        opacity: 1;
+        overflow: hidden;
+        transition: height 0.3s ease, opacity 0.3s ease;
+        margin-top: 4rem;
+        border: none;
+
+
+        &.toggled {
+            opacity: 1;
+            height: 100%;
+        }
+
+        ul {
+            margin: 0;
+            gap: 0;
+            width: 100%;
+            flex-direction: column;
+
+        }
+
+        li {
+            width: 100% !important;
+            height: 4rem !important;
+            position: relative;
+            margin: 0;
+            border-radius: 0;
+            transition: transform 0.2s ease;
+            padding-left: 1rem;
+
+            a {
+                display: block;
+                width: 100% !important;
+                height: 100%;
+                font-size: 2rem;
+                text-align: left;
+                background-size: 0 0 !important;
+                background-position: bottom left !important;
+            }
+        }
+    }
+}
+
+body {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+        z-index: 99999999;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    &.toggled {
+        overflow: hidden;
+    }
+
+    &.toggled::after {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+#header-title.toggled {
+    opacity: 0 !important;
+}
+
+#header-wrapper.toggled {
+    height: 20rem;
+}
+
+#hamburger {
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem 0;
+    position: relative;
+    cursor: pointer;
+    background: url(../images/hamburger.svg) bottom/cover no-repeat;
+    border: none;
+    transition: background 0.3s ease;
+
+    &.toggled {
+        background-position: top;
+    }
+}
