@@ -1,0 +1,704 @@
+/* CSS by Tijn Huisman */
+/* https://tijnh.nl/ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--main-text);
+
+    // Hide scrollbar for every major browser
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+ion-icon {
+    // Fixes jagged edged on ionicons
+    transform: none;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+body {
+    // Disables double tap zoom
+    touch-action: manipulation;
+    background-color: var(--background);
+    font-family: var(--font-stack);
+    font-variation-settings: 'zero' 1;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    // Backdrop effect (hidden by default)
+    &::after {
+        content: '';
+        visibility: hidden;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: fixed;
+        inset: 0;
+        opacity: 0;
+        transition:
+            visibility .2s,
+            opacity .2s,
+            backdrop-filter .2s;
+    }
+}
+
+// Sets the font for headings to Inter Display
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font-stack);
+}
+
+// Disables underline on links
+a {
+    text-decoration: none;
+}
+
+
+h2 {
+    color: var(--h2);
+    margin: 2rem auto 1rem auto;
+    padding: 0 1rem;
+
+
+    >ion-icon {
+        translate: 0 .1em;
+        padding-right: .5rem;
+    }
+}
+
+section {
+    width: 100%;
+}
+
+article {
+    width: calc(100% - 2rem);
+    background-color: var(--elevated);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: auto;
+    line-height: 1.4;
+    position: relative;
+
+}
+
+.info-line {
+    margin-bottom: 1rem;
+    padding-left: 2.75rem;
+    min-height: 2rem;
+    padding-top: .25em;
+    position: relative;
+
+    a {
+        color: var(--blue);
+
+        &:hover {
+            text-decoration: underline;
+            color: var(--blue-hover)
+        }
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    &:first-of-type span {
+        animation: wave 2.5s infinite;
+        transform-origin: 70% 70%;
+    }
+
+    span {
+        font-size: 1.5rem;
+        top: 50%;
+        translate: 0 -50%;
+        left: 0;
+        position: absolute;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        cursor: default;
+    }
+}
+
+// == Other styling ==
+
+#hero-header {
+    top: 0;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 4rem 0 3rem 0;
+
+    h1 {
+        top: 11rem;
+        font-size: 34px;
+        margin: 1rem 0;
+        text-align: center;
+        color: white;
+        width: 100%;
+    }
+
+    // Styling for the transitional gradients at the top and bottom of the header
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(var(--accent), rgba(0, 0, 0, 0), var(--background));
+    }
+}
+
+#header-background-image {
+    font-size: .5vw;
+    inset: 0;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    scale: 1.04;
+    filter: blur(1em);
+    z-index: -1;
+}
+
+.profile-image {
+    border-radius: 50%;
+    height: 144px;
+    width: 144px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    img {
+        height: inherit;
+        width: inherit;
+    }
+}
+
+// Styling for the contact dock
+.contact-dock {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    gap: 30.32px;
+    max-width: fit-content;
+    flex-wrap: wrap;
+    padding: 17.76px;
+    min-height: 96px;
+    margin: 2rem auto 0 auto;
+    background: var(--social-dock-background);
+    backdrop-filter: blur(50px) saturate(2);
+    border-radius: 35px;
+}
+
+// Styling for the apps inside of the contact dock
+.contact-dock span {
+    z-index: 99999;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+
+    overflow: hidden;
+    transition:
+        filter .2s var(--bezier),
+        transform .2s var(--bezier);
+
+    &:hover {
+        filter: brightness(.8);
+        transform: scale(1.08);
+    }
+
+    &:active {
+        transform: scale(.92);
+    }
+
+    img {
+        // Fit the image inside of the span
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.app-language-wrapper {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    position: relative;
+
+    // Gradient to make the apps dissapear into the right side
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 4rem;
+        display: block;
+        background: linear-gradient(90deg, rgb(0, 0, 0, 0), var(--background), );
+        pointer-events: none;
+    }
+}
+
+.app-language-scroll-wrapper {
+    display: flex;
+    overflow-X: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+
+    >span {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        background-color: var(--elevated);
+        width: 11rem;
+        overflow: hidden;
+        transition:
+            filter .2s var(--bezier),
+            transform .2s var(--bezier);
+
+        img {
+            width: 52px;
+            height: 52px;
+            margin: 4px;
+            border-radius: inherit;
+            object-fit: contain;
+            object-position: left;
+            border-radius: 6px;
+
+        }
+
+        .label {
+            background-color: transparent;
+            left: 60px;
+            width: calc(11rem - 60px);
+            height: inherit;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        &:hover {
+            background-color: var(--elevated-hover);
+
+
+            img {
+                opacity: .6;
+            }
+        }
+
+        &:active {
+            transform: scale(.92);
+        }
+    }
+
+    // Pseudo-element to add extra padding to make sure that the last element isn't covered by the gradient
+    &::after {
+        content: "";
+        flex: 0 0 50%;
+        max-width: 4rem;
+    }
+}
+
+// == Carousel ==
+
+.carousel-btn-wrapper {
+    display: flex;
+    top: 0;
+    align-items: center;
+    margin-top: -4rem;
+    width: 100% !important;
+    padding: 1rem;
+    justify-content: right;
+    z-index: 999;
+    gap: .5rem;
+}
+
+.carousel-prev,
+.carousel-next {
+    border-radius: var(--radius);
+    border: none;
+    background-color: var(--elevated);
+    height: 2rem;
+    max-width: 4rem;
+    flex-grow: 1;
+    cursor: pointer;
+    line-height: 0;
+
+    ion-icon {
+        color: var(--blue);
+        font-size: 1.2rem;
+    }
+
+    &:hover ion-icon {
+        color: var(--blue-hover);
+    }
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-wrapper {
+    overflow: auto;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+}
+
+.carousel-item {
+    flex-shrink: 0;
+    width: calc(100% - 6rem);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    border-radius: var(--radius);
+    position: relative;
+    padding: 1rem;
+    aspect-ratio: 1/1;
+    transition:
+        opacity .4s var(--bezier);
+
+    img {
+        width: calc(100% - 2rem);
+        top: 50%;
+        translate: 0 -50%;
+        position: absolute;
+        border-radius: 5px;
+        // cursor: pointer;
+        transition:
+            opacity .4s var(--bezier),
+            transform .4s var(--bezier),
+            filter .4s var(--bezier);
+    }
+
+    figcaption {
+        position: absolute;
+        background-color: var(--background);
+        color: var(--h2);
+        bottom: .5rem;
+        left: .5rem;
+        padding: .3em .6em;
+        border-radius: calc(var(--radius) / 2);
+
+        // Trunctates the label when it reaches a certain width
+        max-width: calc(100% - 1rem);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+// Styling for the bigger image that pops up when you click on a carousel item
+.enlarged-image {
+    position: fixed;
+    max-height: 30rem;
+    max-width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% calc(-50% + 2rem);
+    z-index: 999999;
+    animation: enlarge .3s var(--bezier) forwards;
+}
+
+// Overlay to detect a click to close the enlarged image
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 999;
+}
+
+.focused {
+    opacity: 1;
+}
+
+.carousel-item:not(.focused) {
+    opacity: .5;
+
+    img {
+        opacity: 0;
+        transform: rotate(10deg) scale(.3);
+        filter: blur(10px);
+    }
+}
+
+// == Project  ==
+
+#project-wrapper {
+    padding: 0 1rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+}
+
+.project {
+    background-color: var(--elevated);
+
+    border-radius: var(--radius);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    .project-content {
+        display: none;
+    }
+
+    img {
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        display: block;
+        width: 100%
+    }
+
+    h3 {
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 1rem;
+        font-weight: 600;
+        z-index: 99;
+        font-size: 1.4rem;
+        transition: font-size .2s var(--bezier);
+        transition: font-weight .3s var(--bezier);
+
+        // '>' icon to the right of the link
+        &::after {
+            content: '';
+            right: 1rem;
+            bottom: 0;
+            height: 3rem;
+            background-image: var(--chevron);
+            width: .8em;
+            opacity: .25;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition: translate .2s var(--bezier);
+        }
+    }
+
+    &:hover {
+        background-color: var(--elevated-hover);
+
+        img {
+            filter: brightness(.8);
+        }
+    }
+}
+
+// Close button
+#close {
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--blue);
+    background-size: 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: sticky;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    left: 1rem;
+    top: 1rem;
+    border: none;
+    cursor: pointer;
+    z-index: 99999999;
+
+    ion-icon {
+        color: white;
+    }
+
+    &:hover {
+        background-color: var(--blue-hover);
+    }
+}
+
+// Links
+#link-wrapper {
+    margin: 0 1rem;
+    border-radius: var(--radius);
+
+}
+
+#link-wrapper li {
+    list-style: none;
+    background-color: var(--elevated);
+    position: relative;
+    isolation: isolate;
+
+    a {
+        display: block;
+        line-height: 44px;
+        width: calc(100% - 1rem);
+        margin: 0 1rem;
+        position: relative;
+
+        // '>' icon to the right of the link
+        &::after {
+            background-image: var(--open);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            right: 16px;
+            top: 0;
+            content: "";
+            display: block;
+            height: 100%;
+            width: 1rem;
+            opacity: .25;
+        }
+
+
+
+        // Link label
+        p {
+            margin-left: 46px;
+            border: solid var(--link-border-color);
+            border-width: .1px 0;
+        }
+    }
+
+    &:first-of-type {
+        // Makes the top corners round to make the entire list appear round
+        border-radius: var(--radius) var(--radius) 0 0;
+
+        a p {
+            // Removes the top border on the first list item
+            border-top: none;
+        }
+    }
+
+    &:last-of-type {
+        // Rounds the bottom corners
+        border-radius: 0 0 var(--radius) var(--radius);
+
+        a p {
+            // Removes the bottom border on the last list item
+            border-bottom: none;
+        }
+    }
+
+    &:hover {
+        background-color: var(--elevated-hover);
+
+        // Hide the border when you hover
+        a p {
+            border-color: var(--elevated-hover);
+        }
+    }
+
+    // Select previous li on hover to hide bottom border
+    &:has(+ li:hover) a p {
+        border-bottom-color: var(--elevated) !important;
+    }
+
+    // Select next li on hover to hide top border
+    &:hover+li a p {
+        border-top-color: var(--elevated) !important;
+    }
+
+    // styles for the favicon
+    &::before {
+        content: '';
+        top: 50%;
+        translate: 0 -50%;
+        display: block;
+        position: absolute;
+        background-size: cover;
+        left: 16px;
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        z-index: -1;
+
+        // Fallback icon (external for now)
+        background-image: url(https://u220703.gluwebsite.nl/index-stuff/globe.svg);
+    }
+
+    // Icons for the links
+    // 'href*=[LINK]' means that it checks if the link contains a certain word
+    // in this case, a part of a link
+
+    // LinkedIn icon
+    &:has(a[href*="linkedin"])::before {
+        background-image: url(../images/link-icons/linkedin.webp);
+    }
+
+    // Instagram icon
+    &:has(a[href*="instagram"])::before {
+        background-image: url(../images/link-icons/instagram.webp);
+    }
+
+    // Threads icon
+    &:has(a[href*="threads"])::before {
+        background-image: url(../images/link-icons/threads.webp);
+    }
+
+    // Snapchat icon
+    &:has(a[href*="snapchat"])::before {
+        background-image: url(../images/link-icons/snapchat.webp);
+    }
+
+    // WhatsApp icon
+    &:has(a[href*="wa.me"])::before {
+        background-image: url(../images/link-icons/whatsapp.webp);
+    }
+
+    // Mail icon
+    &:has(a[href*="mailto"])::before {
+        background-image: url(../images/link-icons/mail.webp);
+    }
+
+    // Behance icon
+    &:has(a[href*="behance"])::before {
+        background-image: url(../images/link-icons/behance.webp);
+    }
+}
+
+footer {
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+    color: grey;
+
+    // Small 'TH' footer logo
+    img {
+        display: block;
+        height: 4rem;
+        margin: 0 auto;
+    }
+}

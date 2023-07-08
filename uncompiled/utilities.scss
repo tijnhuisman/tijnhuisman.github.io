@@ -1,0 +1,252 @@
+// == Fonts ==
+
+// Define Inter variable font
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter.ttf') format('opentype');
+  font-weight: 1 1000; // Specify the available font weights
+  font-stretch: 50% 200%; // Specify the available font stretches
+}
+
+// Define Inter Display variable font
+@font-face {
+  font-family: 'Inter Display';
+  src: url('../fonts/InterDisplay.otf') format('opentype');
+  font-weight: 1 1000; // Specify the available font weights
+  font-stretch: 50% 200%; // Specify the available font stretches
+}
+
+// == Variables ==
+
+// Static variables
+:root {
+  --bezier: cubic-bezier(0.4, 0, 0.25, 1);
+  --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  --heading-font-stack: 'Inter Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  --accent: grey; // Placeholder
+  --radius: 10px;
+}
+
+// Default/light mode variables
+:root {
+  --background: #f2f3f5;
+  --header-background: rgba(251, 251, 253, .8);
+  --header-opened-background: rgba(251, 251, 253);
+  --menu-icon: url(../images/menu-light.svg);
+  --menu-close-icon: url(../images/menu-close-light.svg);
+  --social-dock-background: rgba(245, 245, 245, 0.5);
+  --h2: black;
+  --elevated: #ffffff;
+  --elevated-shadow: 0 0 15px rgba(0, 0, 0, 0.1), inset 0 0 2px rgba(0, 0, 0, 0.2);
+  --elevated-hover: rgb(230, 230, 235);
+  --main-text: black;
+  --link-border-color: #B9B9BB99;
+  --blue: rgb(0, 123, 255);
+  --blue-hover: rgb(0, 103, 215);
+  --chevron: url(../images/icons/chevron-light.svg);
+  --open: url(../images/icons/open-light.svg);
+}
+
+// Dark mode variables
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #2C3038;
+    --header-background: rgb(23, 27, 36, .9);
+    --header-opened-background: rgba(23, 27, 36);
+    --menu-icon: url(../images/menu-dark.svg);
+    --menu-close-icon: url(../images/menu-close-dark.svg);
+    --social-dock-background: rgba(0, 0, 0, 0.2);
+    --h2: white;
+    --elevated: #21252e;
+    --elevated-hover: rgb(54, 55, 65);
+    --elevated-shadow: 0 0 15px rgba(255, 255, 255, 0.01), inset 0 0 2px rgba(255, 255, 255, 0.1);
+    --main-text: white;
+    --link-border-color: #40404499;
+    --blue: rgb(10, 132, 255);
+    --blue-hover: rgb(3, 113, 219);
+    --chevron: url(../images/icons/chevron-dark.svg);
+    --open: url(../images/icons/open-dark.svg);
+  }
+}
+
+// == Animations ==
+
+// Waving emoji in about me
+@keyframes wave {
+  0% {
+    transform: rotate(0.0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0.0deg);
+  }
+}
+
+// Growing image enlargement animation
+@keyframes enlarge {
+  from {
+    scale: .5;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+// == Media queries ==
+
+// Desktop Media query
+@media only screen and (min-width: 768px) {
+
+  .carousel-wrapper {
+    border-radius: var(--radius);
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    &:hover {
+      background-color: var(--elevated-hover);
+    }
+  }
+
+  .outer-content-container {
+    max-width: 70rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .content-container-right,
+  .content-container-left {
+    width: 50%;
+  }
+
+  .modal {
+    width: 100%;
+    left: 50%;
+    translate: -50%;
+
+    h1 {
+      margin-top: 0;
+    }
+
+    p,
+    img {
+      display: block;
+      margin: .5rem auto;
+      max-width: 47rem;
+    }
+
+    img {
+      max-height: 20rem;
+      max-width: 47rem;
+      object-fit: contain;
+      object-position: left;
+    }
+  }
+
+  body.modal-open #close  {
+    left: .5rem;
+  }
+}
+
+// Mobile media query
+@media only screen and (max-width: 768px) {
+
+  .modal-content {
+    padding-bottom: 18rem;
+  }
+
+  #close {
+    width: 4.5rem;
+    height: 4.5rem;
+    top: 100%;
+    left: 50%;
+    translate: -50% -7rem;
+    transition: scale .2s var(--bezier);
+
+    &:active {
+      scale: .7;
+    }
+  }
+
+  // Make the carousel reach the sides when on mobile
+  .carousel-wrapper {
+    width: 100%;
+    margin: 0;
+
+    // Adds pseudo-elements for extra padding to account for lost margins
+    &::before,
+    &::after {
+      content: "";
+      flex: 0 0 50%;
+      max-width: 1rem;
+    }
+
+    &::before {
+      margin-right: -1rem;
+    }
+
+    &::after {
+      margin-left: -1rem;
+    }
+  }
+
+  .app-language-wrapper {
+    margin: 0;
+    width: 100%;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .app-language-scroll-wrapper {
+    margin: 0;
+
+    // Adds pseudo-elements for extra padding to account for lost margins
+    &::before,
+    &::after {
+      content: "";
+      flex: 0 0 50%;
+      max-width: 1rem;
+    }
+
+    &::before {
+      margin-right: -1rem;
+    }
+
+    &::after {
+      margin-left: -1rem;
+    }
+  }
+
+  header.modal-open #header-inner svg{
+    right: 1rem;
+    translate: 0 -50%;
+  }
+}

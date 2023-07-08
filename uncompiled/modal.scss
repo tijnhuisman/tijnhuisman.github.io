@@ -1,0 +1,55 @@
+body {
+
+  // Disables scrolling when you open the modal
+  &.modal-open {
+    overflow: hidden;
+
+    // Backdrop effects for when the modal is opened
+    &::after {
+      visibility: visible;
+      opacity: 1;
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+// Styling for the project modal
+.modal {
+  overflow: hidden;
+  background-color: var(--elevated);
+  position: fixed;
+  bottom: 0;
+  transform: translateY(150%);
+  width: 100%;
+  transition:
+    transform 0.4s var(--bezier),
+    max-width .4s var(--bezier);
+  padding: 0;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 9999999;
+  padding: 1rem;
+
+  // Moves the modal up when you open it (class toggled via JS)
+  &.opened {
+    transform: translateY(0);
+  }
+
+  img {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  h1 {
+    background-color: var(--elevated);
+    margin: -2rem 0 3rem 0;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  p {
+    font-size: large;
+    line-height: 1.5;
+  }
+}

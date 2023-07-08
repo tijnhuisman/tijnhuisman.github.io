@@ -2,73 +2,287 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tijn Huisman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/utilities.css">
 
-  <title>Tijn Huisman</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#000000">
 
-  <meta name="description" content="Tijn Huisman's persoonlijke website/portfolio">
-  <meta name="keywords" content="HTML, CSS, JavaScript, Portfolio, Tijn Huisman, Tijn, Huisman, Webdesign">
-  <meta name="author" content="Tijn Huisman">
-  <meta name="theme-color" content="#f5f5f5">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/theme-color.js"></script>
 
-  <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#292929">
-  <meta name="msapplication-TileColor" content="#292929">
-
+    <meta id="theme-color" name="theme-color" content="">
 </head>
 
 <body>
 
-  <div id="header-wrapper">
-    <header>
-      <img id="logo" src="images/logo.svg" alt="TH logo">
-      <h3 id="header-title">Home</h3>
-        <nav id="menu">
-        <ul>
-          <li class="selected"><a href="#">Home</a></li>
-          <li><a href="portfolio">Portfolio</a></li>
-        </ul>
-        <div id="social-btn-wrapper">
-          <a class="social-btn" href="mailto:tjonash@icloud.com"><img src="images/social-icons/mail.svg" alt="E-Mail"></a>
-          <a class="social-btn" href="https://www.behance.net/tijnhuisman"><img src="images/social-icons/behance.svg" alt="Behance"></a>
+    <main>
+
+        <div id="hero-header">
+            <img src="images/background.webp" alt="the background image of the header" id="header-background-image">
+            <div class="profile-image">
+                <img src="images/tijn.webp" alt="An photo of Tijn Huisman">
+            </div>
+
+            <h1>Tijn Huisman</h1>
+
+            <div class="contact-dock">
+
+                <span title="WhatsApp">
+                    <a href="https://wa.me/31643113691">
+                        <img src="images/link-icons/whatsapp.webp" alt="WhatsApp button">
+                    </a></span>
+
+                <span title="Email // tjonash@icloud.com">
+                    <a href="mailto:tjonash@icloud.com">
+                        <img src="images/link-icons/mail.webp" alt="Email button">
+                    </a></span>
+
+                <span title="LinkedIn // Tijn Huisman">
+                    <a href="https://www.linkedin.com/in/tijn-huisman-152636267/">
+                        <img src="images/link-icons/linkedin.webp" alt="LinkedIn button">
+                        🏫 </a></span>
+
+            </div>
+
         </div>
-      </nav>
-      <button id="hamburger"></button>
-    </header>
-  </div>
-  <canvas id="canv" width="32" height="32"></canvas>
-  <main>
+        <div class="outer-content-container">
 
-    <h1 id="home-title">Home</h1>
+            <div class="content-container-left">
+                <section id="about-me">
+                    <h2>Over mij</h2>
+
+                    <article>
+                        <p class="info-line"><span>👋</span>Mijn naam is Tijn Huisman, ik ben 17 jaar oud</p>
+                        <p class="info-line"><span>🏫</span>Ik studeer webdesign op het <a
+                                href="https://glu.nl/">Grafisch lyceum in Utrecht</a></p>
+                        <p class="info-line"><span>👨‍💻</span>Ik codeer graag websites in mijn vrije tijd, ook ontwerp
+                            ik apps en logo's</p>
+                        <p class="info-line"><span>🤩</span>Ik ben altijd op zoek naar opdrachten, heb je een idee voor
+                            een website? neem contact met me op!</p>
+
+                    </article>
+
+                    <!-- Old about me -->
+                    <!-- <article>
+                        <p>
+                            Mijn naam is Tijn Huisman en ik ben 17 jaar oud. Ik studeer Webdesign op het <a href="https://glu.nl/">Grafisch lyceum in Utrecht.</a>
+                            <br><br>
+                            Ik ben geïnteresseerd in technologie en ben goed in CSS en HTML. Ik hou ervan om nieuwe
+                            dingen te leren en me te verdiepen in deze interesses.
+                            <br><br>
+                            Naast mijn interesse in technologie ben ik ook creatief en kan ik goed ontwerpen. Ik ben
+                            altijd op zoek naar
+                            nieuwe uitdagingen en manieren om mijn vaardigheden te verbeteren.
+                            <br><br>
+                            Ik ben enthousiast om te zien wat de toekomst voor mij te bieden heeft en kan niet wachten
+                            om mijn passie
+                            voor technologie en design verder te ontwikkelen.
+                        </p>
+                    </article> -->
+                </section>
+                <section>
+                    <h2>Apps & talen die ik gebruik</h2>
+                    <article class="app-language-wrapper">
+                        <div class="app-language-scroll-wrapper">
+
+                            <span
+                                onclick="alert('Ik gebruik Adobe Photoshop, voor het ontwerpen van posters en producten.')"
+                                title="Photoshop"><img src="images/apps_and_languages/photoshop.jpg"
+                                    alt="Adobe Photoshop"></span>
+
+                            <span onclick="alert('Ik gebruik Adobe Illustrator, voor het maken logos en icoonen.')"
+                                title="Illustrator"><img src="images/apps_and_languages/illustrator.jpg"
+                                    alt="Adobe Illustrator"></span>
+
+                            <span onclick="alert('Figma is voor concepten en prototypen.')" title="Figma"><img
+                                    src="images/apps_and_languages/figma.jpg" alt="Figma"></span>
+
+                            <span onclick="alert('HTML is om de structuur van in website in elkaar te zetten')"
+                                title="HTML"><img src="images/apps_and_languages/html.jpg" alt="HTML5"></span>
+
+                            <span
+                                onclick="alert('Ik gebruik CSS voor de opmaak en het uiterlijk van een website te configureren.')"
+                                title="CSS"><img src="images/apps_and_languages/css.jpg" alt="CSS3"></span>
+
+                            <span onclick="alert('Sass is een CSS preprocessor die meer functionaliteit geeft')"
+                                title="Sass"><img src="images/apps_and_languages/sass.jpg" alt="Sass"></span>
+
+                            <span
+                                onclick="alert('JavaScript is om functionaliteit aan websites of web-apps toe te voegen.')"
+                                title="JavaScript"><img src="images/apps_and_languages/javascript.jpg"
+                                    alt="JavaScript"></span>
+
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Mijn werk</h2>
+                    <div class="carousel-btn-wrapper">
+                        <button class="carousel-prev"><ion-icon name="arrow-back"></ion-icon></button>
+                        <button class="carousel-next"><ion-icon name="arrow-forward"></ion-icon></button>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <figure class="carousel-item focused">
+                            <img src="images/projects/feed-image-1.webp" alt="portfolio-image" loading="lazy">
+                            <figcaption>Helvetica posters - Photoshop</figcaption>
+                        </figure>
+                        <figure class="carousel-item">
+                            <img src="images/projects/feed-image-2.webp" alt="portfolio-image" loading="lazy">
+                            <figcaption>4 Logos - Figma</figcaption>
+                        </figure>
+                        <figure class="carousel-item">
+                            <img src="images/projects/feed-image-6.webp" alt="portfolio-image" loading="lazy">
+                            <figcaption>Browser homepage - HTML CSS &amp JS</figcaption> <a
+                                href="http://www.u220703.gluwebsite.nl/start"></a>
+                        </figure>
+                        <figure class="carousel-item">
+                            <img src="images/projects/feed-image-5.webp" alt="portfolio-image" loading="lazy">
+                            <figcaption>Moyogi Business cards - Illustrator</figcaption>
+                        </figure>
+                        <figure class="carousel-item">
+                            <img src="images/projects/feed-image-9.webp" alt="portfolio-image" loading="lazy">
+                            <figcaption>Generations of Paper posters - Photoshop</figcaption>
+                        </figure>
+                        <figure class="carousel-item">
+                            <img src="images/projects/feed-video-1.webp" alt="portfolio-video" loading="lazy">
+                            <figcaption>Mobile wallet app concept - Figma</figcaption>
+                        </figure>
+                        <figure class="carousel-item">
+                            <img src="images/projects/feed-image-3.webp" alt="portfolio-image" loading="lazy">
+                            <figcaption>Mixxon Branding - Illustrator</figcaption>
+                        </figure>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <div class="content-container-right">
+                <section>
+                    <h2>Projecten</h2>
+
+                    <div id="project-wrapper">
+                        <div class="project" onclick="openModal(1)">
+                            <img src="images/projects/moyogi/cover.jpg" alt="moyogi branding">
+                            <h3>Moyogi Branding</h3>
+                            <div class="project-content">
+                                <h1>Moyogi Branding</h1>
+                                <p>Voor deze opdracht was het idee dat je een logo zou ontwerpen voor een bonsai-studio
+                                    bedrijf genaamd Moyogi. <br> <br>
+                                    Hieronder vind je mijn eerste aantal concepten in verschillende stijlen en kleuren.
+                                </p>
+                                <img src="images/projects/moyogi/moyogi1.jpg" alt="">
+                                <p>Nadat de klant een logo heeft gekozen, ga ik verder met het aanpassen van het logo om
+                                    ervoor te zorgen dat de klant volledig tevreden is met mijn werk.</p>
+                                <img src="images/projects/moyogi/style-studie.jpg" alt="">
+                                <p>Daarna ben ik begonnen met het maken van visitekaartjes met het geselecteerde logo.
+                                </p>
+                                <img src="images/projects/moyogi/moyogi-business-kaartjes.jpg" alt="">
+                                <p>Tot slot heb ik een advertentie gemaakt voor het bedrijf, waarbij ik hun gekozen
+                                    kleuren en stijlen heb gebruikt.</p>
+                                <img src="images/projects/moyogi/advertisement.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="project" onclick="window.location.href='https://por-coaching.nl/';">
+                            <img src="images/projects/por-coaching/cover.jpg" alt="moyogi branding">
+                            <h3>POR-coaching website & logo</h3>
+
+                            <div class="project-content">
+                                <h1>POR-coaching website & logo</h1>
+
+                            </div>
+                        </div>
 
 
-    <p>Mijn naam is Tijn Huisman en ik ben 17 jaar oud. <br><br>
+                    </div>
 
-      Ik ben geïnteresseerd in technologie en ben goed in CSS en HTML. Ik hou ervan om nieuwe dingen te leren en
-      me te verdiepen in deze interesses. Ik ben ook sociaal en aardig, en hou ervan om tijd door te brengen met
-      vrienden en familie.<br><br>
 
-      Naast mijn interesse in technologie ben ik ook creatief en kan ik goed ontwerpen. Ik ben altijd op zoek naar
-      nieuwe uitdagingen en manieren om mijn vaardigheden te verbeteren.<br><br>
+                </section>
+                <section>
+                    <h2>Links</h2>
+                    <ul id="link-wrapper">
+                        <li>
+                            <a href="https://wa.me/31643113691">
+                                <p>WhatsApp</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/tijn-huisman-152636267/">
+                                <p>Linkedin</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/tijnhsmn?igshid=OGQ5ZDc2ODk2ZA==">
+                                <p>Instagram</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://threads.net/@tijnhsmn">
+                                <p>Threads</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:tjonash@icloud.com">
+                                <p>Mail</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.behance.net/tijnhuisman">
+                                <p>Behance</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
 
-      Ik ben enthousiast om te zien wat de toekomst voor mij te bieden heeft en kan niet wachten om mijn passie
-      voor technologie en design verder te ontwikkelen.</p>
-  </main>
 
-  <footer>
-    <p>&copy; Tijn Huisman 2023</p>
-  </footer>
+        <div id="myModal" class="modal">
+            <button id="close" onclick="closeModal(1)"><ion-icon name="close-outline"></ion-icon></button>
+            <div class="modal-content">
+                <div id="modalContent"></div>
+            </div>
+        </div>
+        <div id="modal-backdrop">
+
+        </div>
+    </main>
+
+    <footer>
+        © 2023 Tijn Huisman. Alle rechten voorbehouden.<br>
+        Versie 4.6, laatst geüpdatet: 7 Juli 2023.
+
+        <img src="images/icons/footer-logo.svg" alt="'TH' Tijn Huisman Logo">
+
+    </footer>
+
+    <script src="js/carousel.js"></script>
+    <script src="js/gsap.js"></script>
+    <!-- <script src="js/enlarge-image.js"></script> -->
+    <script src="js/item-background.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/scroll.js"></script>
+    <!-- <script src="js/menu.js"></script> -->
+    <script src="js/span-title.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
 </body>
-
-<script src="js/header-title.js"></script>
-<script src="js/hamburger.js"></script>
-<script src="js/animated-background.js"></script>
 
 </html>
